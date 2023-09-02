@@ -1,0 +1,116 @@
+* {
+  margin: 0%;
+}
+
+/* header */
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: sticky;
+
+}
+
+.header img {
+  width: 6.25rem;
+  height: 5.563rem;
+ 
+
+}
+
+
+/* Login Page  */
+
+.wholePageLogin {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.leftLogin {
+  display: flex;
+  flex-direction: column;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.loginForm input {
+  height: 2rem;
+  border-radius: 0.5625rem;
+  border: 0.063rem solid var(--gray-300, #d1d5db);
+  background: #fff;
+  display: inline-flex;
+  padding: 0.5625rem 3.0625rem 0.4375rem 0.75rem;
+  align-items: center;
+  margin: 1rem;
+}
+
+.loginForm button{
+display: flex;
+padding: 0.625rem;
+align-items: center;
+justify-content: center;
+margin: 1rem;
+border-radius: 0.5rem;
+background: var(--blue-500, #3F83F8);
+color: white;
+border: none;
+border-radius: 0.5rem;
+background: var(--blue-500, #3F83F8);
+height: 2.45rem;
+
+}
+
+.loginForm label{
+    margin-left:1.2rem;
+}
+
+.rightImage img {
+  width: 48.125rem;
+  height: 45.125rem;
+}
+
+.loginLogo img {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.loginLogo {
+  display: flex;
+  width: 14.5625rem;
+  height: 1.5rem;
+  padding: 0.625rem 0rem 0.625rem 0.5rem;
+  align-items: center;
+  gap: 0.25rem;
+  flex-shrink: 0;
+  gap: 0.25rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #fff;
+  margin: 1rem;
+}
+.facebookLogo{}
+
+.loginLabel {
+  color: blue;
+}
+
+.googleFacebook {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 1rem;
+}
+
+.loginOR {
+  display: flex;
+  justify-content: center;
+  /* width: 4.5rem; */
+  color: rgba(26, 23, 23, 0.38);
+  margin: 1rem;
+}
