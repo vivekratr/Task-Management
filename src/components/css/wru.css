@@ -1,0 +1,87 @@
+.wruSubDiv{
+    display: flex;
+    width: 30.188rem;
+    height: 14.875rem;
+    border-radius: 19px;
+border: 1px solid var(--gray-300, #D1D5DB);
+opacity: 0.6;
+background: var(--white, #FFF);
+align-items: center;
+justify-content: center;
+flex-direction: column;
+margin: 1.5rem;
+}
+
+.wruSubDiv div{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.wruMainDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    gap: 1.5rem;
+}
+
+.wruMainDiv button {
+    border: none;
+  box-shadow: none;
+    
+}
+
+.nextButton{
+    width: 7.063rem;
+    height: 2.938rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.wruSubDiv img{
+    width:0.875rem;
+    height: 0.875rem;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+
+.header{
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+
+    /* height: 13rem; */
+}
+
+.leftLogin{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 49%;
+    height: 100vh;
+}
+
+.radioButton button{
+    width: max-content;
+    display: flex;
+    flex-direction: row;
+    border-radius: 0.32rem;
+    cursor: pointer;
+
+}
+
+.watchPNG{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: max-content;
+}
+
+button{
+    background: none;
+}

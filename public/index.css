@@ -1,13 +1,11 @@
-* {
-  margin: 0%;
-}
+
 
 /* header */
 .header {
   display: flex;
   flex-direction: row;
   align-items: center;
-  position: sticky;
+  /* position: sticky; */
 
 }
 
@@ -24,19 +22,34 @@
 .wholePageLogin {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  /* justify-content: space-around; */
   align-items: center;
   flex-wrap: wrap;
+}
+
+@media (max-width: 900px){
+  .wholePageLogin {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .rightImage{
+    display: none;
+  }
 }
 
 .leftLogin {
   display: flex;
   flex-direction: column;
+  width: 49%;
+  height: 100vh;
 }
 
 .loginForm {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .loginForm input {
@@ -48,6 +61,7 @@
   padding: 0.5625rem 3.0625rem 0.4375rem 0.75rem;
   align-items: center;
   margin: 1rem;
+  width: 32.125rem;
 }
 
 .loginForm button{
@@ -63,6 +77,8 @@ border: none;
 border-radius: 0.5rem;
 background: var(--blue-500, #3F83F8);
 height: 2.45rem;
+width: 36.125rem;
+
 
 }
 
@@ -70,9 +86,19 @@ height: 2.45rem;
     margin-left:1.2rem;
 }
 
+.rightImage{
+  /* height: 400rem; */
+  display: flex;
+justify-content: center;
+align-items: center;
+  width: 49%;
+  height: 100vh;
+  background: linear-gradient(90deg, rgba(218, 226, 255, 0.49) 0%, rgba(210, 220, 255, 0.27) 44.34%, rgba(255, 255, 255, 0.00) 100%);
+}
+
 .rightImage img {
-  width: 48.125rem;
-  height: 45.125rem;
+  width: 40rem;
+  height: 30rem;
 }
 
 .loginLogo img {
@@ -98,7 +124,7 @@ height: 2.45rem;
   background: #fff;
   margin: 1rem;
 }
-.facebookLogo{}
+
 
 .loginLabel {
   color: blue;
