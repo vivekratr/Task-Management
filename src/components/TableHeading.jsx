@@ -1,11 +1,18 @@
 import React from "react";
 import Header from "./header";
 import TableCol from "./TableCol";
-import "./css/TableHeading.css";
 import { useState } from "react";
+import "./css/TableHeading.css";
+
+
+
+// import "../input.css"
+
 
 function TableHeading() {
     const [selected, setSelected] = useState(""); 
+    const [selectedCol, setSelectedCol] = useState([]);
+    const [selectedColData, setSelectedColData] = useState([]); 
   const arr = [
     "Owner",
     "Due Date",
@@ -25,11 +32,33 @@ function TableHeading() {
   "Last Updated": "Easily see in one glance when and by who your work was last updated.",
   };
 
+  const obj1 ={
+    "Owner": ["Owner 1","Owner 2","Owner 3"],
+    "Due Date": ["12-09-23","12-10-23","12-11-23"],
+    "Status": ["Ongoing","Todo","Done"],
+    "Notes": ["Strategy","Market analysis","Product design"],
+    "Priority": ["High","Medium","Low"],
+    "Files": ["Project file","Employee details","Product design file"],
+    "Last Updated": ["12-09-23","12-10-23","12-11-23"],
+    
+  }
+
   function handleHover(e){
     setSelected(e);
+    setSelectedCol((prev)=>{
+      return [...prev, e];
+    })
+    setSelectedColData(()=>{
+      const temp = []
+      for (let i = 0; i < selectedCol.length; i++) {
+        const name = selectedCol[i];
+        temp.push(obj1[name][i]);
+      }
+    })
   }
 
   return (
+    <div className="superMainDiv">
     <div className="mainDiv">
       <Header />
       <h2>Let's Select the relevant column for your board</h2>
@@ -37,7 +66,7 @@ function TableHeading() {
 
       <div className="tableElem">
         {arr.map((name) => {
-          return <TableCol func={handleHover} elem={name} />;
+          return <TableCol func={handleHover} elem={name} func1={setSelectedCol} />;
         })}
       </div>
 
@@ -47,14 +76,47 @@ function TableHeading() {
 
       <div className="downButtons">
         <div className="backButton">
-          <button type="submit">Back</button>
+          <button className="" type="submit">Back</button>
         </div>
         <div className="nextButton">
           <button  type="submit" >Next</button>
         </div>
       </div>
     </div>
+
+        <div className="mainDiv2">
+
+          <div className="preTable">
+            <div className="preTablein">
+        {selectedCol.length > 0 ? (
+    <table className="mainTable">
+
+        <tr>
+          {selectedCol.map((name) => {
+            return <th>{name}</th>;
+          })}
+        </tr>
+        {obj1[selectedCol[0]].map((_, rowIndex) => (
+          <tr>
+            {selectedCol.map((columnName) => (
+              <td style={{margin:"auto"}} key={columnName}>
+                {obj1[columnName][rowIndex]}
+              </td>
+            ))}
+          </tr>
+        ))}
+    </table>
+  ) : (
+    <p>No columns selected.</p>
+  )}</div>
+         </div>
+        </div>
+
+    </div>
+    
   );
 }
 
 export default TableHeading;
+
+

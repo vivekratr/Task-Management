@@ -1,3 +1,10 @@
+.superMainDiv {
+  display: flex;
+  flex-direction: row;
+
+  width: 100%;
+}
+
 .tableElem {
   display: grid;
 
@@ -14,6 +21,7 @@
 .mainDiv {
   width: 50%;
   margin-left: 4.625rem;
+  height: 100vh;
 }
 
 .mainDiv h2 {
@@ -53,8 +61,8 @@
   display: flex;
 }
 
-.downButtons button{
-    cursor: pointer;
+.downButtons button {
+  cursor: pointer;
 }
 
 .backButton {
@@ -64,27 +72,20 @@
 .nextButton {
   display: flex;
   justify-content: flex-end;
- 
- 
-
-  
-
 }
 .nextButton button {
   border: none;
   border-radius: 0.25rem;
-border: 1px solid var(--blue-600, #1C64F2);
-background: var(--blue-500, #3F83F8);
+  border: 1px solid var(--blue-600, #1c64f2);
+  background: var(--blue-500, #3f83f8);
 
-
-display: inline-flex;
-height: 2.9375rem;
-padding: 0.75rem 0.805rem 0.68rem 1.8125rem;
-justify-content: flex-end;
-align-items: flex-start;
-gap: 0.6875rem;
-flex-shrink: 0;
-
+  display: inline-flex;
+  height: 2.9375rem;
+  padding: 0.75rem 0.805rem 0.68rem 1.8125rem;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 0.6875rem;
+  flex-shrink: 0;
 }
 
 .elemDetail {
@@ -94,4 +95,76 @@ flex-shrink: 0;
   width: 31.188rem;
   height: 3.813rem;
   padding: 1rem;
+}
+
+.mainDiv2 {
+  width: 50%;
+  height: 100vh;
+
+  background: linear-gradient(
+    90deg,
+    rgba(103, 128, 218, 0.49) 0%,
+    rgba(92, 107, 163, 0.27) 44.34%,
+    rgba(65, 4, 4, 0) 100%
+  );
+}
+
+/* .mainDiv2 table,tr,td,th{
+  border: 1px solid black;
+} */
+
+/* .table-container {
+  width: 100%;
+} */
+
+.mainTable {
+  max-width: 93.5%;
+}
+.mainTable td,
+th {
+  /* border-radius: 0.5625rem 0rem 0rem 0.5625rem; */
+  border: 1px solid #ffffff;
+  padding: 0.2rem;
+}
+
+.mainDiv2 table {
+  border: none;
+}
+
+.mainTable {
+  width: 100%;
+  border-collapse: collapse;
+  /* margin-bottom: 20px; */
+  /* padding: 20rem; */
+  margin-right: 0;
+  height: 15.25rem;
+  border-radius: 1.2rem 1.2rem 1.2rem 1.2rem;
+  /* border: 1px solid #ACACAC; */
+  border: none;
+  background: #f5f5f5;
+  
+}
+
+td {
+  margin: auto;
+  text-align: center;
+}
+
+.preTable {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #e5e7eb; */
+}
+.preTablein {
+  width: 90%;
+margin-left: 0.4rem;
+  justify-content: center;
+  padding: 1.5rem;
+  /* padding-right: 10rem; */
+  /* padding-top: 1.8rem; */
+  /* height: 70%; */
+  align-items: center;
+  background-color: #ffffff;
 }
