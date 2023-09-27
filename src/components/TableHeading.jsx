@@ -82,7 +82,9 @@ function TableHeading() {
 
       <div className="downButtons">
         <div className="backButton">
-          <button className="" type="submit">Back</button>
+          <button className="" onClick={()=>{
+             Navigate(-1)
+          }} type="submit">Back</button>
         </div>
         <div className="nextButton">
           <button  onClick={()=>{
