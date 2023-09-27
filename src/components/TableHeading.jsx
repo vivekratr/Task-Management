@@ -3,7 +3,6 @@ import Header from "./header";
 import TableCol from "./TableCol";
 import { useState } from "react";
 import "./css/TableHeading.css";
-import ListItems from "./ListItems";
 import { useNavigate } from "react-router-dom";
 
 // import "../input.css"
