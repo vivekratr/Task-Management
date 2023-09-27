@@ -1,26 +1,39 @@
-.mainDiv{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 100px;
+.mainDivList{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  
 }
 
 
 .leftDiv{
-    width: 50%;
+  width: 50%;
 }
 
-
+/* .rightDiv td,th{
+padding:1rem;
+border: 1px solid black;
+} */
 
 
 /*  extra small devices (phones) */
 @media screen and (max-width: 576px) {
-   
-  }
+.mainDivList{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 
-  
-  /* small devices (tablets) */
+}
+}
+
+
+/* small devices (tablets) */
 @media screen and (min-width: 577px) and (max-width: 768px) {
-   
-  }
-  
+
+.mainDivList{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+}

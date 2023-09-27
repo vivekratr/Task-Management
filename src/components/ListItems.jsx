@@ -3,7 +3,8 @@ import "./css/ListItem.css";
 import Header from "./header";
 
 
-function ListItems() {
+
+function ListItems(props) {
 
   const[elements,setElement]=useState({first:"",second:"",third:""})
   
@@ -20,7 +21,7 @@ function ListItems() {
             
   }
   return(
-  <div className="mainDiv">
+  <div className="mainDivList">
     <div className="leftDiv">
         <Header/>
       <h1>List Your Tasks</h1>
@@ -31,25 +32,27 @@ function ListItems() {
     <div className="rightDiv">
         <table>
             <thead>
-                <th>d</th>
+                <th>
+                  
+                </th>
                 <th>d</th>
                 <th>d</th>
             </thead>
             <tbody>
                 <tr>
                     <td>{elements.first}</td>
-                    <td>d</td>
-                    <td>d</td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>{elements.second}</td>
-                    <td>d</td>
-                    <td>d</td>
+                    <td></td>
+                    <td></td>
                 </tr>
                 <tr>
                     <td>{elements.third}</td>
-                    <td>d</td>
-                    <td>d</td>
+                    <td></td>
+                    <td></td>
                 </tr>
             </tbody>
         </table>
