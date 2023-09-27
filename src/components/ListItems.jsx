@@ -31,15 +31,25 @@ function ListItems() {
     <div className="rightDiv">
         <table>
             <thead>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th>d</th>
+                <th>d</th>
+                <th>d</th>
             </thead>
             <tbody>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{elements.first}</td>
+                    <td>d</td>
+                    <td>d</td>
+                </tr>
+                <tr>
+                    <td>{elements.second}</td>
+                    <td>d</td>
+                    <td>d</td>
+                </tr>
+                <tr>
+                    <td>{elements.third}</td>
+                    <td>d</td>
+                    <td>d</td>
                 </tr>
             </tbody>
         </table>
