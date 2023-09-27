@@ -4,8 +4,8 @@ import RegisterPage from "./components/RegisterPage";
 import LoginPage from "./components/LoginPage";
 import WRU from "./components/WRU";
 import TableHeading from "./components/TableHeading";
-import ViewLayout from "./components/viewLayout";
-// import "./input.css"
+import ListItems from "./components/ListItems";
+
 function App() {
 
 
@@ -18,7 +18,9 @@ return (
           <Route path="/login" element={<LoginPage/>} />
           <Route path="/wru" element={<WRU/>} />
           <Route path="/table" element={<TableHeading/>} />
-          <Route path="/viewLayout" element={<ViewLayout />} />
+          <Route path="list" element={<ListItems /> } />
+          <Route path="*" element={<h1>Not Found</h1>} />
+
 
           
         </Routes>

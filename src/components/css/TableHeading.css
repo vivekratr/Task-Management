@@ -1,7 +1,7 @@
 .superMainDiv {
   display: flex;
   flex-direction: row;
-
+  margin: 0%;
   width: 100%;
 }
 
@@ -26,20 +26,22 @@
 
 .mainDiv h2 {
   width: 39.625rem;
+
   height: 4.375rem;
-  flex-shrink: 0;
+  flex-shrink: 1;
   color: var(--gray-700, #374151);
+
   font-family: Inter;
   font-size: 1.875rem;
   font-style: normal;
   font-weight: 500;
-  line-height: 150%; /* 45px */
+  line-height: 150%;
 }
 
 .mainDiv h4 {
   width: 33.5rem;
   height: 2.375rem;
-  flex-shrink: 0;
+  flex-shrink: 1;
   color: var(--gray-700, #374151);
   font-family: Inter;
   font-size: 1rem;
@@ -100,49 +102,36 @@
 .mainDiv2 {
   width: 50%;
   height: 100vh;
-
-  background: linear-gradient(
-    90deg,
-    rgba(103, 128, 218, 0.49) 0%,
-    rgba(92, 107, 163, 0.27) 44.34%,
-    rgba(65, 4, 4, 0) 100%
-  );
+  /* z-index: -10; */
+  background: #85c4ff;
 }
-
-/* .mainDiv2 table,tr,td,th{
-  border: 1px solid black;
-} */
-
-/* .table-container {
-  width: 100%;
-} */
 
 .mainTable {
   max-width: 93.5%;
 }
 .mainTable td,
 th {
-  /* border-radius: 0.5625rem 0rem 0rem 0.5625rem; */
   border: 1px solid #ffffff;
   padding: 0.2rem;
 }
 
 .mainDiv2 table {
   border: none;
+  height: 40vh;
 }
 
 .mainTable {
   width: 100%;
   border-collapse: collapse;
-  /* margin-bottom: 20px; */
-  /* padding: 20rem; */
+
   margin-right: 0;
   height: 15.25rem;
   border-radius: 1.2rem 1.2rem 1.2rem 1.2rem;
-  /* border: 1px solid #ACACAC; */
+
   border: none;
   background: #f5f5f5;
-  
+  margin-top: 7rem;
+  margin-left: 1rem;
 }
 
 td {
@@ -155,16 +144,44 @@ td {
   height: 100vh;
   justify-content: center;
   align-items: center;
-  /* background-color: #e5e7eb; */
 }
 .preTablein {
   width: 90%;
-margin-left: 0.4rem;
+  margin-left: 0.4rem;
   justify-content: center;
   padding: 1.5rem;
-  /* padding-right: 10rem; */
-  /* padding-top: 1.8rem; */
-  /* height: 70%; */
+
+  height: 70%;
   align-items: center;
   background-color: #ffffff;
+  border-radius: 2rem;
+}
+
+/* Media query for screens smaller than 768px (e.g., mobile devices) */
+@media (max-width: 768px) {
+  .superMainDiv {
+    flex-direction: column;
+    margin-left: 0;
+  }
+
+  .mainDiv,
+  .mainDiv2 {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .mainDiv h2,
+  .mainDiv h4 {
+    width: 100%;
+  }
+
+  .mainTable {
+    margin-top: 2rem;
+    margin-left: 0;
+  }
+
+  /* .mainDiv2 {
+    padding: 0%;
+    margin: 0%;
+  } */
 }

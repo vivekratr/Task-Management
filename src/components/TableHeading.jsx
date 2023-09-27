@@ -88,6 +88,7 @@ function TableHeading() {
 
           <div className="preTable">
             <div className="preTablein">
+              <h2>Task Management</h2>
         {selectedCol.length > 0 ? (
     <table className="mainTable">
 
