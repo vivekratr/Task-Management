@@ -11,8 +11,8 @@ import { useNavigate } from "react-router-dom";
 
 function TableHeading() {
    const Navigate = useNavigate();
-    const [selected, setSelected] = useState(""); 
-    const [selectedCol, setSelectedCol] = useState([]);
+    const [selected, setSelected] = useState(""); //used for column description
+    const [selectedCol, setSelectedCol] = useState([]); //used for column names
     const [selectedColData, setSelectedColData] = useState([]); 
 
  
@@ -88,7 +88,10 @@ function TableHeading() {
         </div>
         <div className="nextButton">
           <button  onClick={()=>{
-            Navigate("/list")
+            const temp = {
+            selectedCol:selectedCol,
+            }
+            Navigate("/list", {state:temp})
           }} type="submit" >Next</button>
         </div>
       </div>
