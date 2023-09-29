@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 import obj1,{obj,arr} from "./data.jsx";
 
 function ListItems() {
-  const [elements, setElement] = useState({ first: "", second: "", third: "" });
+  const [elements, setElement] = useState({ first: "Task 1", second: "Task 2", third: "Task 3" });
     const elementIndex =[ "first", "second", "third"]
   const location = useLocation();
   const { selectedCol } = location.state;
@@ -26,23 +26,37 @@ function ListItems() {
         <Header />
         <h1>List Your Tasks</h1>
         <input
+          className="listInput"
           onChange={handleChange}
           name="first"
+          maxLength={18}
+
           type="text"
           value={elements.first}
         />
         <input
+          className="listInput"
+          maxLength={18}
+
           onChange={handleChange}
           name="second"
           type="text"
           value={elements.second}
         />
         <input
+          className="listInput"
+          maxLength={18}
+
           onChange={handleChange}
           name="third"
           type="text"
           value={elements.third}
         />
+
+        <div className="listButtons">
+
+
+        </div>
       </div>
       <div className="mainDiv2">
 
