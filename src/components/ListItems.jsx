@@ -5,8 +5,9 @@ import { useLocation } from "react-router-dom";
 import obj1,{obj,arr} from "./data.jsx";
 
 function ListItems() {
-  const [elements, setElement] = useState({ first: "Task 1", second: "Task 2", third: "Task 3" });
-    const elementIndex =[ "first", "second", "third"]
+  const [elements, setElement] = useState({ 1: "Task 1", 2: "Task 2", 3: "Task 3" });
+  const [currentIndex, setCurrentIndex] = useState(3);
+    const elementIndex =[ "1", "2", "3"]
   const location = useLocation();
   const { selectedCol } = location.state;
   console.log(selectedCol);
@@ -20,38 +21,60 @@ function ListItems() {
       };
     });
   }
+
+  function handleAddItem(event) {
+    event.preventDefault();
+    setCurrentIndex((prevValue) => prevValue + 1);
+    setElement((prevValue) => {
+      return {
+        ...prevValue,
+        [currentIndex]: "",
+      };
+    });
+  }
+
   return (
     <div className="mainDivList">
       <div className="leftDiv">
         <Header />
-        <h1>List Your Tasks</h1>
+        <h1 style={{marginLeft:"6rem"}}>List Your Tasks</h1>
         <input
           className="listInput"
           onChange={handleChange}
-          name="first"
+          name="1"
           maxLength={18}
-
+          placeholder="Task 1"
           type="text"
           value={elements.first}
         />
         <input
           className="listInput"
           maxLength={18}
+          placeholder="Task 2"
 
           onChange={handleChange}
-          name="second"
+          name="2"
           type="text"
           value={elements.second}
         />
         <input
           className="listInput"
           maxLength={18}
+          placeholder="Task 3"
 
           onChange={handleChange}
-          name="third"
+          name="3"
           type="text"
           value={elements.third}
         />
+
+{/* add item button */}
+        <div className="listAddTask">
+        <button onClick={handleAddItem} type="button" class="list_button">
+  <span class="list_button__text">Add Item</span>
+  <span class="list_button__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" height="24" fill="none" class="svg"><line y2="19" y1="5" x2="12" x1="12"></line><line y2="12" y1="12" x2="19" x1="5"></line></svg></span>
+</button>
+        </div>
 
         <div className="listButtons">
 
