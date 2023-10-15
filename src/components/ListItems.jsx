@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import "./css/ListItem.css";
 import Header from "./header";
@@ -21,52 +21,57 @@ function ListItems() {
   const elementIndex = ["1", "2", "3"];
   const location = useLocation();
 
-function collectTableData(colName,index){
-  const randomItems = [];
-  console.log("colName",colName,"elements",inputField.length+3,"index",index)
-  for (let i = 0; i < inputField.length+3; i++) {
-    
-    randomItems.push(obj1[colName][(index+i)%obj1[colName].length]);
+  function collectTableData(colName, index) {
+    const randomItems = [];
+    console.log(
+      "colName",
+      colName,
+      "elements",
+      inputField.length + 3,
+      "index",
+      index
+    );
+    for (let i = 0; i < inputField.length + 3; i++) {
+      randomItems.push(obj1[colName][(index + i) % obj1[colName].length]);
+    }
+    console.log("randomItems", randomItems);
+    return { [colName]: randomItems };
   }
-  console.log("randomItems",randomItems)
-  return { [colName]: randomItems };
+  async function generateUniqueRoomCode(length) {
+    const characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    let roomCode = "";
 
-}
-async function generateUniqueRoomCode(length) {
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  let roomCode = '';
+    while (true) {
+      for (let i = 0; i < length; i++) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        roomCode += characters[randomIndex];
+      }
 
-  while (true) {
-    for (let i = 0; i < length; i++) {
-      const randomIndex = Math.floor(Math.random() * characters.length);
-      roomCode += characters[randomIndex];
+      const isRoomCodeUnique = 2; //use axois to check if room code is unique
+
+      if (isRoomCodeUnique) {
+        break;
+      } else {
+        roomCode = "";
+      }
     }
 
-
-    const isRoomCodeUnique =2//use axois to check if room code is unique
-
-    if (isRoomCodeUnique) {
-      break;
-    } else {
-      roomCode = '';
-    }
+    return roomCode;
   }
-
-  return roomCode;
-}
 
   const handleNext = () => {
-   const roomCode = generateUniqueRoomCode(6);
-    console.log("inputField", inputField,"elements",elements);
+    const roomCode = generateUniqueRoomCode(6);
+    console.log("inputField", inputField, "elements", elements);
     const dataToSave = {
-   
-      ...selectedCol.map((columnName,acc ) => {
-        console.log("columnName",columnName,'acc',acc)
-        return collectTableData(columnName,acc);
-      }),   'Task Name': elements, 
+      ...selectedCol.map((columnName, acc) => {
+        console.log("columnName", columnName, "acc", acc);
+        return collectTableData(columnName, acc);
+      }),
+      "Task Name": elements,
     };
     console.log(dataToSave);
-  }
+  };
 
   useEffect(() => {
     const checkLocationIsNull = () => {
@@ -78,8 +83,7 @@ async function generateUniqueRoomCode(length) {
     checkLocationIsNull();
   }, []);
 
-  const  selectedCol = location.state.selectedCol || [] ;
-
+  const selectedCol = location.state.selectedCol || [];
 
   console.log(selectedCol);
   const newSelectedCol = ["Task Name", ...selectedCol];
@@ -106,8 +110,7 @@ async function generateUniqueRoomCode(length) {
   }
 
   function handleDeleteItem(event) {
-    
-    console.log(event)
+    console.log(event);
     setInputField((prevValue) => {
       return prevValue.filter((index) => {
         return index !== event;
@@ -157,7 +160,12 @@ async function generateUniqueRoomCode(length) {
                 onClick={handleDeleteItem}
               />
 
-              <span onClick={()=>{handleDeleteItem(index)}} className="listItemDelete" >
+              <span
+                onClick={() => {
+                  handleDeleteItem(index);
+                }}
+                className="listItemDelete"
+              >
                 <svg
                   width="24px"
                   height="24px"
@@ -194,21 +202,38 @@ async function generateUniqueRoomCode(length) {
                 height="24"
                 fill="none"
                 class="svg"
-                
               >
                 <line y2="19" y1="5" x2="12" x1="12"></line>
                 <line y2="12" y1="12" x2="19" x1="5"></line>
               </svg>
             </span>
           </button>
-
-
         </div>
-        <div className="listButtonss" style={{display:"flex",flexDirection:"row",justifyContent:"space-around",alignItems:"flex-start",width:"100%"}}>
-          <p style={{cursor:"pointer"}} onClick={()=>{
-            Navigate(-1);
-          }} >Back</p>
-          <p style={{cursor:"pointer"}} className="button" onClick={handleNext} >Next</p>
+        <div
+          className="listButtonss"
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-around",
+            alignItems: "flex-start",
+            width: "100%",
+          }}
+        >
+          <p
+            style={{ cursor: "pointer" }}
+            onClick={() => {
+              Navigate(-1);
+            }}
+          >
+            Back
+          </p>
+          <p
+            style={{ cursor: "pointer" }}
+            className="button"
+            onClick={handleNext}
+          >
+            Next
+          </p>
         </div>
       </div>
       <div className="mainDiv2">
