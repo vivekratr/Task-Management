@@ -37,7 +37,7 @@ function ListItems() {
         const randomIndex = Math.floor(Math.random() * characters.length);
         roomCode += characters[randomIndex];
       }
-
+      
       const isRoomCodeUnique = 2; //use axois to check if room code is unique
 
       if (isRoomCodeUnique) {
