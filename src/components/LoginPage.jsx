@@ -51,10 +51,16 @@ function LoginLeftt(){
     <GoogleLogin
         size="large"
         
-        onSuccess={(credentialResponse) => {
+        onSuccess={async(credentialResponse) => {
           const cred = jwtDecode(credentialResponse.credential);
           console.log("Credential Response:", JSON.stringify(cred, null, 2));
-           
+          await axios({
+            method: 'post',
+            url: 'http://localhost:3001/login',
+            data: formData,
+          }) .then(function(response) {
+              console.log(response);
+            });
 
           Navigate("/home");
         }}
