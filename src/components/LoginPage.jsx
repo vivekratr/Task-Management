@@ -54,6 +54,8 @@ function LoginLeftt(){
         onSuccess={async(credentialResponse) => {
           const cred = jwtDecode(credentialResponse.credential);
           console.log("Credential Response:", JSON.stringify(cred, null, 2));
+          const data = {email:cred.email,img:cred.picture,name:given_name+' '+family_name};
+          c
           await axios({
             method: 'post',
             url: 'http://localhost:3001/registerGoogle',
