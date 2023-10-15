@@ -4,8 +4,7 @@ import "./css/ListItem.css";
 import Header from "./header";
 import { useLocation } from "react-router-dom";
 import obj1, { obj, arr } from "./data.jsx";
-import { trusted } from "mongoose";
-
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function ListItems() {
