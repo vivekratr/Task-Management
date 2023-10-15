@@ -52,7 +52,10 @@ function LoginLeftt(){
         size="large"
         
         onSuccess={(credentialResponse) => {
-          console.log(jwtDecode(credentialResponse.credential));
+          const cred = jwtDecode(credentialResponse.credential);
+          console.log("Credential Response:", JSON.stringify(cred, null, 2));
+    console.log("Decoded Credential:", cred);
+
           Navigate("/home");
         }}
         onError={() => {
