@@ -51,7 +51,8 @@ function ListItems() {
   }
 
   const handleNext =async () => {
-    const roomCode ={code: generateUniqueRoomCode(6)};
+    const roomCode ={code: 'Cu8Yrw'};
+    // const roomCode ={code: generateUniqueRoomCode(6)};
     console.log(roomCode);
     await axios({
       method: 'post',
