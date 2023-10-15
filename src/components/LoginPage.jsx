@@ -55,11 +55,11 @@ function LoginLeftt(){
           const cred = jwtDecode(credentialResponse.credential);
           console.log("Credential Response:", JSON.stringify(cred, null, 2));
           const data = {email:cred.email,img:cred.picture,name:given_name+' '+family_name};
-          c
+          console.log(data);
           await axios({
             method: 'post',
             url: 'http://localhost:3001/registerGoogle',
-            data: formData,
+            data: data,
           }) .then(function(response) {
               console.log(response);
             });
