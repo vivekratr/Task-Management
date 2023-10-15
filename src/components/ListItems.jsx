@@ -60,12 +60,18 @@ function ListItems() {
     return roomCode;
   }
 
-  const handleNext = () => {
-    const roomCode = generateUniqueRoomCode(6);
-    console.log("inputField", inputField, "elements", elements);
+  const handleNext =async () => {
+    const roomCode ={code: generateUniqueRoomCode(6)};
+    await axios({
+      method: 'post',
+      url: 'http://localhost:3001/roomVerify',
+      data: roomCode,
+    }) .then(function(response) {
+        console.log(response);
+        
+        });
     const dataToSave = {
       ...selectedCol.map((columnName, acc) => {
-        console.log("columnName", columnName, "acc", acc);
         return collectTableData(columnName, acc);
       }),
       "Task Name": elements,

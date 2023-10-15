@@ -11,14 +11,8 @@ import Homepage from "./components/HomePage";
 function App() {
 
 return (
-<<<<<<< HEAD
   <BrowserRouter>
       <div className="">
-=======
-    <BrowserRouter>
-      <div className="r">
-        
->>>>>>> 14e04e737c2307f5ad4c3d2b202e59f9cddde6e6
         <Routes>
           <Route path="/" element={<RegisterPage/>} />
           <Route path="/login" element={<LoginPage/>} />
