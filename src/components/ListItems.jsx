@@ -56,6 +56,7 @@ async function generateUniqueRoomCode(length) {
 }
 
   const handleNext = () => {
+    roomCode = generateUniqueRoomCode(6);
     console.log("inputField", inputField,"elements",elements);
     const dataToSave = {
    
