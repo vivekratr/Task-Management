@@ -32,6 +32,28 @@ function collectTableData(colName,index){
   return { [colName]: randomItems };
 
 }
+async function generateUniqueRoomCode(length) {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let roomCode = '';
+
+  while (true) {
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      roomCode += characters[randomIndex];
+    }
+
+
+    const isRoomCodeUnique =2//use axois to check if room code is unique
+
+    if (isRoomCodeUnique) {
+      break;
+    } else {
+      roomCode = '';
+    }
+  }
+
+  return roomCode;
+}
 
   const handleNext = () => {
     console.log("inputField", inputField,"elements",elements);
