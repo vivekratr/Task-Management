@@ -22,14 +22,6 @@ function ListItems() {
 
   function collectTableData(colName, index) {
     const randomItems = [];
-    console.log(
-      "colName",
-      colName,
-      "elements",
-      inputField.length + 3,
-      "index",
-      index
-    );
     for (let i = 0; i < inputField.length + 3; i++) {
       randomItems.push(obj1[colName][(index + i) % obj1[colName].length]);
     }
