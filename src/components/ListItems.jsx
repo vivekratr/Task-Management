@@ -27,7 +27,7 @@ function ListItems() {
     }
     return { [colName]: randomItems };
   }
-  async function generateUniqueRoomCode(length) {
+ function generateUniqueRoomCode(length) {
     const characters =
       "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     let roomCode = "";
