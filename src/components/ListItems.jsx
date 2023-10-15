@@ -25,7 +25,6 @@ function ListItems() {
     for (let i = 0; i < inputField.length + 3; i++) {
       randomItems.push(obj1[colName][(index + i) % obj1[colName].length]);
     }
-    console.log("randomItems", randomItems);
     return { [colName]: randomItems };
   }
   async function generateUniqueRoomCode(length) {
