@@ -1,51 +1,45 @@
-.mainDivList{
+.mainDivList {
   display: flex;
   flex-direction: row;
   width: 100%;
-  
 }
 
-
-.leftDiv{
+.leftDiv {
   width: 50%;
   display: flex;
   flex-direction: column;
-
 }
 
-
-
-.listInput{
+.listInput {
   display: inline-flex;
-height: 3.1875rem;
-padding: 0.5rem 0.94125rem 0.56625rem 2.5625rem;
-width: 30rem;
-justify-content: flex-end;
-align-items: center;
-gap: 23.5625rem;
-flex-shrink: 0;
-border-radius: 0.25rem;
-border: 1px solid var(--gray-400, #9CA3AF);
-background: rgba(255, 255, 255, 0.18);
-margin: 1rem;
-margin-left: auto;
-margin-right: auto;
-
+  height: 3.1875rem;
+  padding: 0.5rem 0.94125rem 0.56625rem 2.5625rem;
+  width: 30rem;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 23.5625rem;
+  flex-shrink: 0;
+  border-radius: 0.25rem;
+  border: 1px solid var(--gray-400, #9ca3af);
+  background: rgba(255, 255, 255, 0.18);
+  margin: 1rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.rightDiv{
+.rightDiv {
   width: 50%;
 }
 
-.rightDiv td,th{
-/* padding:0.4rem; */
-/* border: 1px solid black; */
-max-width: 100%;
-
+.rightDiv td,
+th {
+  /* padding:0.4rem; */
+  /* border: 1px solid black; */
+  max-width: 100%;
 }
 /* Add item button */
 
-.listAddTask{
+.listAddTask {
   margin: auto;
   margin-top: 0%;
 }
@@ -61,7 +55,9 @@ max-width: 100%;
   background-color: #3aa856;
 }
 
-.button, .list_button__icon, .list_button__text {
+.button,
+.list_button__icon,
+.list_button__text {
   transition: all 0.3s;
 }
 
@@ -109,113 +105,177 @@ max-width: 100%;
 }
 /* Add item button */
 
+/* delete item */
+.listItemDelete {
+  font-size: medium;
+  color: red;
+  position: relative;
+  top: 0.3rem;
+  right: 2.4rem;
+
+ 
+}
+
+.listItemInput {
+  display:inline; 
+  margin-left: auto;
+  /* margin-left: 6.999rem; */
+  margin-right: auto;
+}
+
+.listItemInputLeft{
+  padding-left: 1.5rem;
+}
 
 /*  extra small devices (phones) */
 @media screen and (max-width: 576px) {
-.mainDivList{
-  display: flex;
-  flex-direction: column;
+  .mainDivList {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .leftDiv {
+    width: 100%;
+    height: 60vh;
+  }
+
+  button.list_button {
+    width: 100%;
+    height: 2.3rem;
+  }
+
+  span.list_button__icon {
+    height: 2.9rem;
+  }
+
+  .list_button__text {
+    width: 6.9rem;
+    font-size: 0.6rem;
+    height: 0.8rem;
+    margin: auto;
+    margin-right: 2.3rem;
+    margin-left: -2rem;
+  }
+
+  .mainDivList {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .leftDiv {
+    width: 100%;
+    height: auto; /* Set height to auto for smaller devices */
+  }
+
+  .listInput {
+    width: 70%; /* Make input fields full width on smaller screens */
+    margin: 1rem 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .list_button {
+    width: 100%; /* Make button full width on smaller screens */
+  }
+  /* delete item */
+.listItemDelete {
+  font-size: medium;
+  color: red;
+  position: relative;
+  top: 0.3rem;
+  right: 2.4rem;
+
+ 
+}
+
+.listItemInput {
+  display:block;
   width: 100%;
-
-}
-.leftDiv{
-  width: 100%;
-  height: 60vh;
-}
-
-button.list_button{
-  width: 100%;
-  height: 2.3rem;
-}
-
-span.list_button__icon {
-  height: 2.9rem;
-}
-
-.list_button__text{
-  width: 6.9rem;
-  font-size: 0.6rem;
-  height: 0.8rem;
+  /* margin-left: 6.999rem; */
   margin: auto;
-  margin-right: 2.3rem;
-  margin-left: -2rem;
-}
-
-.mainDivList {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.leftDiv {
-  width: 100%;
-  height: auto; /* Set height to auto for smaller devices */
-}
-
-.listInput {
-  width: 70%; /* Make input fields full width on smaller screens */
-  margin: 1rem 0;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.list_button {
-  width: 100%; /* Make button full width on smaller screens */
 }
 }
-
 
 /* small devices (tablets) */
 @media screen and (min-width: 577px) and (max-width: 768px) {
+  .mainDivList {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
 
-.mainDivList{
-  display: flex;
-  flex-direction: column;
+  .leftDiv {
+    width: 100%;
+    height: 60vh;
+  }
+
+  button.list_button {
+    width: 100%;
+    height: 2.3rem;
+  }
+
+  span.list_button__icon {
+    height: 2.9rem;
+  }
+
+  .list_button__text {
+    width: 6.9rem;
+    font-size: 0.6rem;
+    height: 0.8rem;
+    margin: auto;
+    margin-right: 2.3rem;
+    margin-left: -2rem;
+  }
+
+  .mainDivList {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .leftDiv {
+    width: 100%;
+    height: auto; /* Set height to auto for smaller devices */
+  }
+
+  .listInput {
+    width: 70%; /* Make input fields full width on smaller screens */
+    margin: 1rem 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .list_button {
+    width: 100%; /* Make button full width on smaller screens */
+  }
+
+ .button{
+  cursor: pointer;
+ }
+
+   /* delete item */
+div.listItemDelete {
+  font-size: medium;
+  color: red;
+  position: relative;
+  top: 0.3rem;
+  right: 2.4rem;
+
+ 
+}
+
+.listItemInput {
+  
   width: 100%;
-}
+  /* margin-left: 6.999rem; */
+ margin: auto;
+ margin-top: 1rem;
+ padding-left: 4rem;
 
-.leftDiv{
-  width: 100%;
-  height: 60vh;
 }
-
-button.list_button{
-  width: 100%;
-  height: 2.3rem;
-}
-
-span.list_button__icon {
-  height: 2.9rem;
-}
-
-.list_button__text{
-  width: 6.9rem;
-  font-size: 0.6rem;
-  height: 0.8rem;
+.listItemInput input{
+  width: 70%;
   margin: auto;
-  margin-right: 2.3rem;
-  margin-left: -2rem;
-}
-
-.mainDivList {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.leftDiv {
-  width: 100%;
-  height: auto; /* Set height to auto for smaller devices */
-}
-
-.listInput {
-  width: 70%; /* Make input fields full width on smaller screens */
-  margin: 1rem 0;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.list_button {
-  width: 100%; /* Make button full width on smaller screens */
 }
 }

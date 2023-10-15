@@ -13,7 +13,7 @@ function TableHeading() {
    const Navigate = useNavigate();
     const [selected, setSelected] = useState(""); //used for column description
     const [selectedCol, setSelectedCol] = useState([]); //used for column names
-    const [selectedColData, setSelectedColData] = useState([]); 
+    // const [selectedColData, setSelectedColData] = useState([]); 
 
  
   function handleHover(e){
@@ -21,13 +21,13 @@ function TableHeading() {
     setSelectedCol((prev)=>{
       return [...prev, e];
     })
-    setSelectedColData(()=>{
-      const temp = []
-      for (let i = 0; i < selectedCol.length; i++) {
-        const name = selectedCol[i];
-        temp.push(obj1[name][i]);
-      }
-    })
+    // setSelectedColData(()=>{
+    //   const temp = []
+    //   for (let i = 0; i < selectedCol.length; i++) {
+    //     const name = selectedCol[i];
+    //     temp.push(obj1[name][i]);
+    //   }
+    // })
   }
 
   const arr = [

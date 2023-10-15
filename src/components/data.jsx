@@ -5,9 +5,10 @@ const arr = [
     "Notes",
     "Priority",
     "Files",
-    "Last Updated",
-   
+    "Last Updated",   
   ];
+
+  
  const obj = {"Owner": "Assign accountability to any team member or guest so everyone is aligned on what they need to complete.",
   "Due Date": "Assign accountability to any team member or guest so everyone is aligned on what they need to complete.",
   "Status": "Stay up-to-date on the progress and performance of all your tasks so you can optimize quickly.",

@@ -1,19 +1,64 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
+
 import "./css/ListItem.css";
 import Header from "./header";
 import { useLocation } from "react-router-dom";
 import obj1, { obj, arr } from "./data.jsx";
+import { trusted } from "mongoose";
+
+import { useNavigate } from "react-router-dom";
 
 function ListItems() {
+  const Navigate = useNavigate();
   const [elements, setElement] = useState({
     1: "Task 1",
     2: "Task 2",
     3: "Task 3",
   });
-  const [currentIndex, setCurrentIndex] = useState(3);
+  const [currentIndex, setCurrentIndex] = useState(4);
+  const [inputField, setInputField] = useState([]);
+
   const elementIndex = ["1", "2", "3"];
   const location = useLocation();
-  const { selectedCol } = location.state;
+
+function collectTableData(colName,index){
+  const randomItems = [];
+  console.log("colName",colName,"elements",inputField.length+3,"index",index)
+  for (let i = 0; i < inputField.length+3; i++) {
+    
+    randomItems.push(obj1[colName][(index+i)%obj1[colName].length]);
+  }
+  console.log("randomItems",randomItems)
+  return { [colName]: randomItems };
+
+}
+
+  const handleNext = () => {
+    console.log("inputField", inputField,"elements",elements);
+    const dataToSave = {
+   
+      ...selectedCol.map((columnName,acc ) => {
+        console.log("columnName",columnName,'acc',acc)
+        return collectTableData(columnName,acc);
+      }),   'Task Name': elements, 
+      // Add any other data you want to save
+    };
+    console.log(dataToSave);
+  }
+
+  useEffect(() => {
+    const checkLocationIsNull = () => {
+      if (location.state === null || location.state.selectedCol === null) {
+        console.log("hello");
+        Navigate("/table");
+      }
+    };
+    checkLocationIsNull();
+  }, []);
+
+  const  selectedCol = location.state.selectedCol || [] ;
+
+
   console.log(selectedCol);
   const newSelectedCol = ["Task Name", ...selectedCol];
   function handleChange(event) {
@@ -32,8 +77,19 @@ function ListItems() {
     setElement((prevValue) => {
       return {
         ...prevValue,
-        [currentIndex]: "",
+        [currentIndex]: `Task ${currentIndex}`,
       };
+    });
+    setInputField([...inputField, currentIndex]);
+  }
+
+  function handleDeleteItem(event) {
+    
+    console.log(event)
+    setInputField((prevValue) => {
+      return prevValue.filter((index) => {
+        return index !== event;
+      });
     });
   }
 
@@ -49,7 +105,6 @@ function ListItems() {
           maxLength={18}
           placeholder="Task 1"
           type="text"
-          value={elements.first}
         />
         <input
           className="listInput"
@@ -58,7 +113,6 @@ function ListItems() {
           onChange={handleChange}
           name="2"
           type="text"
-          value={elements.second}
         />
         <input
           className="listInput"
@@ -67,8 +121,40 @@ function ListItems() {
           onChange={handleChange}
           name="3"
           type="text"
-          value={elements.third}
         />
+        {inputField.map((index) => {
+          return (
+            <div className="listItemInput listItemInputLeft">
+              <input
+                className="listInput "
+                maxLength={18}
+                placeholder={`Task ${index}`}
+                onChange={handleChange}
+                name={index}
+                type="text"
+                onClick={handleDeleteItem}
+              />
+
+              <span onClick={()=>{handleDeleteItem(index)}} className="listItemDelete" >
+                <svg
+                  width="24px"
+                  height="24px"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M16 8L8 16M12 12L16 16M8 8L10 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                    stroke="#000000"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+            </div>
+          );
+        })}
 
         {/* add item button */}
         <div className="listAddTask">
@@ -86,15 +172,22 @@ function ListItems() {
                 height="24"
                 fill="none"
                 class="svg"
+                
               >
                 <line y2="19" y1="5" x2="12" x1="12"></line>
                 <line y2="12" y1="12" x2="19" x1="5"></line>
               </svg>
             </span>
           </button>
-        </div>
 
-        <div className="listButtons"></div>
+
+        </div>
+        <div className="listButtonss" style={{display:"flex",flexDirection:"row",justifyContent:"space-around",alignItems:"flex-start",width:"100%"}}>
+          <p style={{cursor:"pointer"}} onClick={()=>{
+            Navigate(-1);
+          }} >Back</p>
+          <p style={{cursor:"pointer"}} className="button" onClick={handleNext} >Next</p>
+        </div>
       </div>
       <div className="mainDiv2">
         <div className="preTable">
@@ -110,7 +203,7 @@ function ListItems() {
 
                 {obj1[selectedCol[0]].map((_, rowIndex) => (
                   <tr>
-                    <td>{elements[elementIndex[rowIndex]]}</td>
+                    <td>{elements[elementIndex[rowIndex]]} </td>
 
                     {selectedCol.map((columnName) => (
                       <td style={{ margin: "auto" }} key={columnName}>
@@ -119,6 +212,25 @@ function ListItems() {
                     ))}
                   </tr>
                 ))}
+                {inputField.map((index) => {
+                  return (
+                    <tr>
+                      <td>{elements[index]} </td>
+
+                      {selectedCol.map((columnName) => (
+                        <td style={{ margin: "auto" }} key={columnName}>
+                          {
+                            obj1[columnName][
+                              Math.floor(
+                                Math.random() * obj1[columnName].length
+                              )
+                            ]
+                          }
+                        </td>
+                      ))}
+                    </tr>
+                  );
+                })}
               </table>
             ) : (
               <p>No columns selected.</p>
