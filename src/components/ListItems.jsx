@@ -64,7 +64,6 @@ async function generateUniqueRoomCode(length) {
         console.log("columnName",columnName,'acc',acc)
         return collectTableData(columnName,acc);
       }),   'Task Name': elements, 
-      // Add any other data you want to save
     };
     console.log(dataToSave);
   }
