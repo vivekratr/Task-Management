@@ -13,7 +13,7 @@ function App() {
 return (
   <BrowserRouter>
       <div className="">
-        <Routes>
+        <Routes> 
           <Route path="/" element={<RegisterPage/>} />
           <Route path="/login" element={<LoginPage/>} />
           <Route path="/wru" element={<WRU/>} />
